@@ -34,7 +34,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "4043561062";
+    const serviceWorkerVersion = "102648383";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -44,7 +44,7 @@
   <script type="text/javascript">
     window.flutterWebRenderer = "html";
   </script>
-  <!-- Push notification subcription -->
+  <!-- Push notification subscription -->
   <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -55,21 +55,25 @@
       });
     });
   }
-</script>
+  </script>
+
+  <!-- Google Sign-In Meta Tag -->
+  <meta name="google-signin-client_id" content="264632956120-in7sgvmt5enkhfp6t7c1fb4su0oo1aj6.apps.googleusercontent.com">
+
 </head>
 <body>
-  <script src="main.dart.js" type="application/javascript"></script>
-  <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/firebase-messaging-sw.js')
-            .then(function(registration) {
-              console.log('Registration successful, scope is:', registration.scope);
-            }).catch(function(err) {
-              console.log('Service worker registration failed, error:', err);
-            });
-        }
+<script src="main.dart.js" type="application/javascript"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then(function(registration) {
+          console.log('Registration successful, scope is:', registration.scope);
+        }).catch(function(err) {
+          console.log('Service worker registration failed, error:', err);
+        });
+    }
   </script>
-  <script>
+<script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -84,5 +88,25 @@
       });
     });
   </script>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+
+<script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: 'AIzaSyAOnIdVtRo8Xq64i7r3cK8vCoDcXwP0x0c',
+      authDomain: 'mybeautyapp-7a645.firebaseapp.com',
+      projectId: 'mybeautyapp-7a645',
+      storageBucket: 'mybeautyapp-7a645.appspot.com',
+      messagingSenderId: '264632956120',
+      appId: '1:264632956120:web:8d6d814b542b512f0693ad',
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
 </body>
 </html>
